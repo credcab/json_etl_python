@@ -8,6 +8,7 @@
 # que aparecen en verde con el hashtag "#"
 
 import json
+from tkinter.font import names
 import requests
 
 import matplotlib.pyplot as plt
@@ -45,5 +46,29 @@ if __name__ == '__main__':
     # para imprimir cuantos títulos completó cada usuario
     # y verifique si los primeros usuarios (mirando la página a ojo)
     # los datos recolectados son correctos.
+
+    info_url = requests.get(url)
+    info_json = info_url.json()
+    usuarios = [x['userId'] for x in info_json if x.get('completed') is True]
+    
+    lista = [usuarios.count(x) for x in usuarios]  
+    cantidad = [lista[i] for i in range(len(usuarios)) if (usuarios[i-1] != usuarios[i])]
+    lista_id = list(set(usuarios))
+
+    print(usuarios)
+    print(lista)
+    print(cantidad)
+    print(lista_id)
+
+    fig = plt.figure()
+    fig.suptitle('gráfico comparativo', fontsize=19,)
+    ax = fig.add_subplot()
+    ax.bar(lista_id, cantidad)
+    ax.set_ylabel("títulos completados")
+    ax.set_xlabel("Id")
+    ax.set_facecolor('aquamarine')
+    plt.show()
+
+
 
     print("terminamos")
