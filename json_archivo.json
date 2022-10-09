@@ -1,0 +1,21 @@
+[
+    {
+        "nombre": "cristian eduardo",
+        "apellido": "cabezas",
+        "DNI": "1234567890",
+        "prendas": [
+            {
+                "prenda": "zapatillas",
+                "cantidad": "4"
+            },
+            {
+                "prenda": "remeras",
+                "cantidad": "12"
+            },
+            {
+                "prenda": "pantalones",
+                "cantidad": "5"
+            }
+        ]
+    }
+]
